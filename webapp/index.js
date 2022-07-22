@@ -5,6 +5,10 @@ const app = new Koa();
 const router = new Router();
 const sum = require('./sum');
 
+router.get('/', (req, res) => {
+   return req.body = { "status": "Ok"};
+});
+
 router.get('/add/:a/:b', (ctx, next) => {
   const result = sum(parseFloat(ctx.params.a), parseFloat(ctx.params.b));
   return ctx.body = { result };
